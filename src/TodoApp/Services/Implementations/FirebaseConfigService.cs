@@ -6,17 +6,29 @@ using TodoApp.Services.Interfaces;
 
 namespace TodoApp.Services.Implementations
 {
+    /// <summary>
+    /// Firebaseの設定情報を取得するサービス
+    /// </summary>
     public class FirebaseConfigService : IFirebaseConfigService
     {
         private readonly HttpClient _httpClient;
         private readonly ILogger<FirebaseConfigService> _logger;
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="httpClient">HTTPクライアント</param>
+        /// <param name="logger">ロガー</param>
         public FirebaseConfigService(HttpClient httpClient, ILogger<FirebaseConfigService> logger)
         {
             _httpClient = httpClient;
             _logger = logger;
         }
 
+        /// <summary>
+        /// Firebaseの設定情報を取得する
+        /// </summary>
+        /// <returns></returns>
         public async Task<string> GetFirebaseConfigAsync()
         {
             try
